@@ -1,4 +1,4 @@
-name: X86固件
+name: X86通用固件
 
 on:
   push:
