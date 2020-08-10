@@ -1,4 +1,4 @@
-name: x86_generic Lean's OpenWrt
+name: x86_generic Lean's
 
 on:
   push:
