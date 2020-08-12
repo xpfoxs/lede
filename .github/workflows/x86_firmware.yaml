@@ -168,6 +168,14 @@ jobs:
           CONFIG_PACKAGE_luci-app-wifischedule=y
           CONFIG_PACKAGE_luci-app-wol=y
           CONFIG_PACKAGE_luci-app-wrtbwmon=y
+          CONFIG_PACKAGE_kmod-mt76-core=y
+          CONFIG_PACKAGE_kmod-mt76-usb=y
+          CONFIG_PACKAGE_kmod-mt76x02-common=y
+          CONFIG_PACKAGE_kmod-mt76x02-usb=y          
+          CONFIG_PACKAGE_kmod-mt76x2-common=y
+          CONFIG_PACKAGE_kmod-mt76x2u=y
+          CONFIG_PACKAGE_kmod-usb-net-ipheth=y
+          
           EOF
 
           # LuCI主题:
