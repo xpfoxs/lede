@@ -97,9 +97,9 @@ jobs:
           EOF
 
           # 固件压缩:
-          # cat >> .config <<EOF
-          # CONFIG_TARGET_IMAGES_GZIP=y
-          # EOF
+          cat >> .config <<EOF
+          CONFIG_TARGET_IMAGES_GZIP=y
+          EOF
 
           # 编译UEFI固件:
           cat >> .config <<EOF
@@ -131,7 +131,6 @@ jobs:
           CONFIG_PACKAGE_kmod-usb3=y
           EOF
 
-          # 常用LuCI插件选择:
           cat >> .config <<EOF
           CONFIG_PACKAGE_luci-app-accesscontrol=y
           CONFIG_PACKAGE_luci-app-adbyby-plus=y
@@ -143,22 +142,26 @@ jobs:
           CONFIG_PACKAGE_luci-app-firewall=y
           CONFIG_PACKAGE_luci-app-guest-wifi=y
           CONFIG_PACKAGE_luci-app-haproxy-tcp=y
-          CONFIG_PACKAGE_luci-app-mwan3=y
-          CONFIG_PACKAGE_luci-app-mwan3helper=y
+          #CONFIG_PACKAGE_luci-app-mwan3=y
+          #CONFIG_PACKAGE_luci-app-mwan3helper=y
           CONFIG_PACKAGE_luci-app-nlbwmon=y
           CONFIG_PACKAGE_luci-app-ramfree=y
           CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-webui=y
           CONFIG_PACKAGE_luci-app-rclone_INCLUDE_rclone-ng=y
           CONFIG_PACKAGE_luci-app-rclone_INCLUDE_fuse-utils=y
           CONFIG_PACKAGE_luci-app-sfe=y
-          CONFIG_PACKAGE_luci-app-syncdial=y
+          #CONFIG_PACKAGE_luci-app-syncdial=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Kcptun=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_Shadowsocks=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
+          #CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Server=y
           CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_ShadowsocksR_Socks=y
-          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y          
+          CONFIG_PACKAGE_luci-app-ssr-plus_INCLUDE_V2ray=y
+          CONFIG_PACKAGE_luci-app-ssr-mudb-server=y
+          CONFIG_PACKAGE_luci-i18n-ssr-mudb-server-zh-cn=y
+          CONFIG_PACKAGE_luci-app-v2ray-server=y
+          CONFIG_PACKAGE_luci-i18n-v2ray-server-zh-cn=y
           CONFIG_PACKAGE_luci-app-ttyd=y
-          CONFIG_PACKAGE_luci-app-udpxy=y
+          #CONFIG_PACKAGE_luci-app-udpxy=y
           CONFIG_PACKAGE_luci-app-unblockmusic=y
           CONFIG_UnblockNeteaseMusic_Go=y
           CONFIG_UnblockNeteaseMusic_NodeJS=y
@@ -167,14 +170,26 @@ jobs:
           CONFIG_PACKAGE_luci-app-wifischedule=y
           CONFIG_PACKAGE_luci-app-wol=y
           CONFIG_PACKAGE_luci-app-wrtbwmon=y
-          CONFIG_PACKAGE_kmod-mt76-core=y
-          CONFIG_PACKAGE_kmod-mt76-usb=y
-          CONFIG_PACKAGE_kmod-mt76x02-common=y
-          CONFIG_PACKAGE_kmod-mt76x02-usb=y          
-          CONFIG_PACKAGE_kmod-mt76x2-common=y
-          CONFIG_PACKAGE_kmod-mt76x2u=y
-          CONFIG_PACKAGE_kmod-usb-net-ipheth=y          
-          EOF
+          CONFIG_PACKAGE_kmod-usb-net-ipheth=y
+          CONFIG_PACKAGE_luci-app-diskman=y
+          CONFIG_PACKAGE_luci-app-hd-idle=y
+          CONFIG_PACKAGE_luci-app-fileassistant=y
+          CONFIG_PACKAGE_luci-app-timecontrol=y
+          CONFIG_PACKAGE_luci-i18n-timecontrol-zh-cn=y
+          CONFIG_PACKAGE_nft-qos=y
+          CONFIG_PACKAGE_luci-app-nft-qos=y
+          CONFIG_PACKAGE_luci-i18n-nft-qos-zh-cn=y
+          CONFIG_PACKAGE_luci-app-control-webrestriction=y
+          
+          #下载工具
+          CONFIG_PACKAGE_luci-app-amule=y
+          CONFIG_PACKAGE_luci-app-aria2=y
+          CONFIG_PACKAGE_luci-i18n-aria2-zh-cn=y
+          CONFIG_PACKAGE_luci-app-qbittorrent=y
+          CONFIG_PACKAGE_luci-i18n-qbittorrent-zh-cn=y
+          CONFIG_PACKAGE_luci-app-transmission=y
+          CONFIG_PACKAGE_luci-i18n-transmission-zh-cn=y
+          #下载工具
 
           # LuCI主题:
           cat >> .config <<EOF
@@ -197,10 +212,10 @@ jobs:
           # EOF
 
           # 取消编译VMware镜像以及镜像填充 (不要删除被缩进的注释符号):
-          # cat >> .config <<EOF
-          # # CONFIG_TARGET_IMAGES_PAD is not set
-          # # CONFIG_VMDK_IMAGES is not set
-          # EOF
+          cat >> .config <<EOF
+          # CONFIG_TARGET_IMAGES_PAD is not set
+          # CONFIG_VMDK_IMAGES is not set
+          EOF
 
           # 
           # ========================固件定制部分结束========================
