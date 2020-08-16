@@ -241,29 +241,3 @@ jobs:
         with:
           name: OpenWrt_firmware
           path: ./bin/targets/
-
-      - name: Organize files
-        id: organize
-        run: |
-          cd openwrt/bin/targets/*/*
-          rm -rf packages
-          echo "::set-env name=FIRMWARE::$PWD"
-          echo "::set-output name=status::success"
-        
-      - name: Upload firmware directory
-        uses: actions/upload-artifact@main
-        with:
-          name: OpenWrt_firmware${{ env.DEVICE_NAME }}${{ env.FILE_DATE }}
-          path: ${{ env.FIRMWARE }}
-
-      - name: Upload firmware to cowtransfer
-        run: |
-          curl -fsSL git.io/file-transfer | sh
-          ./transfer cow --block 2621440 -s -p 64 --no-progress ${FIRMWARE} 2>&1 | tee cowtransfer.log
-          echo "::warning file=cowtransfer.com::$(cat cowtransfer.log | grep https)"
-          
-      - name: Upload firmware to WeTransfer
-        run: |
-          curl -fsSL git.io/file-transfer | sh
-          ./transfer wet -s -p 16 --no-progress ${FIRMWARE} 2>&1 | tee wetransfer.log
-          echo "::warning file=wetransfer.com::$(cat wetransfer.log | grep https)"
